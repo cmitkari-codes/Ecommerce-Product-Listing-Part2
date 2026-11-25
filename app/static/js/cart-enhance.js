@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('[data-product-id]').forEach(el=>{if(!el.querySelector('[data-add-cart]')){const id=el.dataset.productId;const b=document.createElement('button');b.textContent='Add to cart';b.dataset.addCart=id;el.appendChild(b);}})});

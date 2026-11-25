@@ -1,0 +1,7 @@
+{
+ "annotations":{"list":[]},"editable":true,"panels":[
+ {"type":"timeseries","title":"HTTP request volume","gridPos":{"h":8,"w":12,"x":0,"y":0},"targets":[{"expr":"sum(rate(ecommerce_http_requests_total[1m])) by (endpoint)","legendFormat":"{{endpoint}}"}]},
+ {"type":"timeseries","title":"Request latency (p95)","gridPos":{"h":8,"w":12,"x":12,"y":0},"targets":[{"expr":"histogram_quantile(0.95, sum(rate(ecommerce_http_request_duration_seconds_bucket[5m])) by (le))","legendFormat":"p95"}]},
+ {"type":"timeseries","title":"HTTP errors per second","gridPos":{"h":8,"w":12,"x":0,"y":8},"targets":[{"expr":"sum(rate(ecommerce_http_requests_total{status=~"4..|5.."}[1m]))","legendFormat":"errors"}]},
+ {"type":"timeseries","title":"Cart operations","gridPos":{"h":8,"w":12,"x":12,"y":8},"targets":[{"expr":"sum(rate(ecommerce_cart_operations_total[1m])) by (operation)","legendFormat":"{{operation}}"}]}
+ ],"refresh":"5s","schemaVersion":39,"title":"Northstar E-Commerce Monitoring","version":1}
